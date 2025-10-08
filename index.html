@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Count Moose</title>
-
+  <title>Click para executar o metodo </title>
+  <style>
+    #app {
+      border: black dashed 1px;
+      width: 200px;
+      padding: 0 20px 20px 20px;
+    }
+    #app > div {
+      width: 140px;
+      height: 60px;
+      background-color: lightgreen;
+      padding: 20px;
+      font-weight: bold;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
 </head>
 <body>
 
-<h1>Exemplo de contar</h1>  
+<h1>Exemplo: Click para executar o metodo</h1>
 
 <div id="app">
-  <p>{{ "Total: " + count }}</p>
-  <button v-on:click="count++">Adicionando Item</button>
+  <p>Clique na caixa abaixo:</p>
+  <div v-on:click="changeText">
+    {{ text }}
+  </div>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -18,7 +34,12 @@
   const app = Vue.createApp({
     data() {
       return {
-        count: 0
+        text: ''
+      }
+    },
+    methods: {
+      changeText() {
+        this.text = 'Hello World!'
       }
     }
   })
