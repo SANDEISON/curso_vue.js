@@ -1,208 +1,58 @@
-# Diretivas Vue.js
+# Eventos Vue.js
+
+O tratamento de eventos no Vue é feito com a diretiva v-on , para que possamos fazer algo acontecer quando, por exemplo, um botão é clicado.
+
+O tratamento de eventos ocorre quando elementos HTML são configurados para executar um determinado código quando um determinado evento acontece.
+
+Os eventos no Vue são fáceis de usar e tornarão nossa página realmente responsiva.
+
+Os métodos do Vue são códigos que podem ser configurados para serem executados quando um evento acontece.
+
+Com os modificadores v-on , você pode descrever com mais detalhes como reagir a um evento.
+
+Exemplo : 
+
+Vamos começar com um exemplo para mostrar como podemos clicar em um botão para contar alces em uma floresta.
+
+Precisamos:
+
+1. Um botão
+2. v-on na tag < button > para ouvir o evento 'click'
+3. Código para aumentar o número de alces
+4. Uma propriedade (variável) na instância Vue para conter o número de alces
+5. Chaves duplas {{ }} para mostrar o aumento do número de alces
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Count Moose</title>
+        
+        </head>
+        <body>
+        
+        <h1>Exemplo de contar</h1>  
+        
+        <div id="app">
+          <p>{{ "Total: " + count }}</p>
+          <button v-on:click="count++">Adicionando Item</button>
+        </div>
+        
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+          const app = Vue.createApp({
+            data() {
+              return {
+                count: 0
+              }
+            }
+          })
+         app.mount('#app')
+        </script>
+        
+        </body>
+        </html>
+
+
 
 ### 1. v-bind
-   
-Conecta um atributo em uma tag HTML a uma variável de dados dentro da instância do Vue.
-
-Exemplo
-
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>'v-bind' Image Source Example</title>
-      <style>
-        #app {
-          border: dashed black 1px;
-          width: 250px;
-          padding: 0 10px 10px 10px;
-        }
-    
-        img {
-          width: 100%;
-        }
-      </style>
-    </head>
-    <body>
-    
-    <h1>'v-bind' Image Source Example</h1>
-    
-    <div id="app">
-      <p>The browser finds the 'src' attribute value from the Vue instance with the use of 'v-bind'.</p>
-      <img v-bind:src="url">
-    </div>
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-      const app = Vue.createApp({
-       data() {
-        return {
-          url: "img_beach3.jpg"
-        }
-       }
-      })
-      app.mount('#app')
-    </script>
-    
-    </body>
-    </html>
-
-
-### 2. v-if
-
-Cria tags HTML dependendo de uma condição. As diretivas v-else-ife v-elsesão usadas em conjunto com a diretiva v-if.
-
-Exemplo
-
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Typewriters</title>
-      <style>
-        #app {
-          border: dashed black 1px;
-          width: 130px;
-          padding-left: 20px;
-          font-weight: bold;
-          background-color: lightgreen;
-        }
-      </style>
-    </head>
-    <body>
-    
-    <h1>Example with 'v-if' and 'v-else'</h1>
-    
-    <p>Try changing the 'typewritersInStock' value in the Vue instance from 'true' to 'false' and run the code again.</p>
-    
-    <div id="app">
-      <p v-if="typewritersInStock">
-        in stock
-      </p>
-      <p v-else>
-        not in stock
-      </p>
-    </div>
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-      const app = Vue.createApp({
-       data() {
-        return {
-          typewritersInStock: true
-        }
-       }
-      })
-      app.mount('#app')
-    </script>
-    
-    </body>
-    </html>
-
-
-### 3. v-show
-
-Especifica se um elemento HTML deve ser visível ou não, dependendo de uma condição.
-
-Exemplo
-
-    <div id="app">
-      <div v-show="showDiv">This div tag can be hidden</div>
-    </div>
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-      const app = Vue.createApp({
-        data() {
-          return {
-            showDiv: true
-          }
-        }
-      })
-      app.mount('#app')
-    </script>
-
-### 4. v-for
-
-Cria uma lista de tags com base em uma matriz na instância do Vue usando um loop for.
-
-Exemplo
-
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>My first Vue page</title>
-      <style>
-        #app > div {
-          display: inline-block;
-          border: dashed black 1px;
-          padding: 10px;
-          background-color: lightgreen;
-        }
-        #app p {
-          font-weight: bold;
-          margin: 5px 0;
-        }
-      </style>
-    </head>
-    <body>
-    
-    <h1>Example: Get the array element index with 'v-for'</h1>
-    <p>The 'v-for' directive is used to get the index of objects inside the 'manyFoods' array, together with the name and url of each food object.</p>
-    
-    <div id="app">
-      <div>
-        <p v-for="(x, index) in manyFoods">
-          {{ index }}: "{{ x.name }}", url: "{{ x.url }}" <br>
-        </p>
-      </div>
-    </div>
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-      const app = Vue.createApp({
-       data() {
-        return {
-          manyFoods: [
-            {name: 'Burrito', url: 'img_burrito.svg'},
-            {name: 'Salad', url: 'img_salad.svg'},
-            {name: 'Cake', url: 'img_cake.svg'},
-            {name: 'Soup', url: 'img_soup.svg'},
-            {name: 'Fish', url: 'img_fish.svg'},
-            {name: 'Pizza', url: 'img_pizza.svg'},
-            {name: 'Rice', url: 'img_rice.svg'}
-          ]
-        }
-       }
-      })
-      app.mount('#app')
-    </script>
-    
-    </body>
-    </html>
-
-### 5. v-on
-
-Conecta um evento em uma tag HTML a uma expressão JavaScript ou a um método de instância do Vue. Também podemos definir mais especificamente como nossa página deve reagir a um determinado evento usando modificadores de evento .
-
-Exemplo
-
-    <div id="app">
-      <div id="lightDiv">
-        <div v-show="lightOn"></div>
-        <img src="img_lightBulb.svg">
-      </div>
-      <button v-on:click="lightOn = !lightOn">Switch light</button>
-    </div>
-    
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-      const app = Vue.createApp({
-        data() {
-          return {
-            lightOn: false
-          }
-        }
-      })
-      app.mount('#app')
-    </script>
-
-
+  

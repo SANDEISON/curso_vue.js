@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-  <title>Minha primeira página Vue</title>
+  <title>Count Moose</title>
+
 </head>
 <body>
 
-  <div id="app">
-    {{ message }}
-  </div>
+<h1>Exemplo de contar</h1>  
 
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<div id="app">
+  <p>{{ "Total: " + count }}</p>
+  <button v-on:click="count++">Adicionando Item</button>
+</div>
 
-  <script>
-    const app = Vue.createApp({
-      data() {
-        return {
-          message: "Hello World!"
-        }
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        count: 0
       }
-    })
+    }
+  })
+ app.mount('#app')
+</script>
 
-   app.mount('#app')
-
-  </script>
 </body>
 </html>
