@@ -1,3 +1,35 @@
+<!-- 
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <title>Minha primeira página Vue</title>
+  </head>
+  <body>
+
+    <div id="app">
+      {{ message }}
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: "Hello World!"
+          }
+        }
+      })
+
+    app.mount('#app')
+
+    </script>
+  </body>
+  </html>  
+-->
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,7 +38,16 @@
 <body>
 
   <div id="app">
-    {{ message }}
+    {{ message }}<br/>
+    {{ valorTotal }}<br/>    
+    {{ logado }}<br/>
+    {{ passatempos }}<br/>
+    {{ passatempos[2] }}<br/>
+    {{ perfil }}<br/>
+    {{ perfil.nome }}<br/>
+    {{ perfil.cursos }}<br/>
+    {{ perfil.cursos[0] }}<br/>
+     {{ perfil.cursos[0].nome }}<br/>
   </div>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -15,7 +56,33 @@
     const app = Vue.createApp({
       data() {
         return {
-          message: "Hello World!"
+          message: "Hello World!",
+          valorTotal: 1500,
+          logado: false,
+          passatempos:[
+            'Correr',
+            'Tocar instrumentos',
+            'Praia',
+            'Cinema'
+          ],
+          perfil:{
+            nome: 'Sandeison Fernandes',
+            idade: 39,
+            cursos:[
+
+              {
+                nome: 'Residência em Robótica e Inteligência Artificial',
+                carga_horaria: '420 horas'
+              },
+              {
+                nome: 'Análise e Desenvolvimento de Sistemas',
+                carga_horaria: '2520 horas'
+              }
+
+            ]
+
+          }
+
         }
       }
     })
