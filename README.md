@@ -216,3 +216,20 @@ Em seguida, o navegador encontra o texto dentro da propriedade 'message' da inst
       </script>
     </body>
     </html>
+
+
+### Cronograma das Aulas 
+
+| Aula	                                                 | Branch  |                                                 Clique no Link |
+|:------------------------------------------------------|:-------:|---------------------------------------------------------------:|
+| Aula 1 – Introdução ao Vue                              | aula_1  |              [Link](https://github.com/SANDEISON/curso_vue.js) |
+| Aula 2 - Diretivas Vue.js              | aula_2  |  [Link](https://github.com/SANDEISON/curso_vue.js/tree/aula_2) |
+| Aula 3 - Eventos Vue.js     | aula_3  |  [Link](https://github.com/SANDEISON/curso_vue.js/tree/aula_3) |
+| Aula 4 - Vue CLI                          | aula_4  |  [Link](https://github.com/SANDEISON/curso_vue.js/tree/aula_4) |
+
+
+
+
+
+
+
